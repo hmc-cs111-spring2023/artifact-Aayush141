@@ -5,8 +5,18 @@ case class PhonemicString(strt: String):
 
 given Conversion[String,PhonemicString] = n => PhonemicString(n)
 
-//var d = "\hE:loU\"
+//var d = \hE:loU\
 
 var g = "he"
 
 PhonemicString("he") =~ g
+
+
+//in progress loop strucure
+def loop_each_word (sentence: => String) (body: => Unit) =
+	val arr = sentence.split("[ -]")
+	for(word <- arr){
+  		body
+  	}
+
+
