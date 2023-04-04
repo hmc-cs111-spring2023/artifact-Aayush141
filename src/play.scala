@@ -20,3 +20,15 @@ def loop_each_word (sentence: => String) (body: => Unit) =
   	}
 
 
+//-------------------------------
+// unorderedString -- the characters in the string are not ordered, per say. 
+case class unorderedString(strt: String):
+	var strArr = (strt.toCharArray()).sorted
+	override def toString = strArr.mkString("")
+	def ~~(newStr: unorderedString) = (strArr.sameElements(newStr.strArr))
+
+given Conversion[String,unorderedString] = n => unorderedString(n)
+
+var g2 = "i am lord voldemort"
+var us1 = unorderedString("tom marvolo riddle ")
+us1 ~~ g2
