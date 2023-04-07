@@ -38,6 +38,8 @@ case class unorderedString(strt: String):
 	def ~~(newStr: unorderedString) = (strArr.sameElements(newStr.strArr))
 	def ~~=(newStr: unorderedString) = (strArrDist.sameElements(newStr.strArrDist))
 
+	def -(newStr: unorderedString) = (unorderedString(((strArr).diff(newStr.strArr)).mkString("")))
+
 	def ⊆(newStr: unorderedString) = (strArrDist.diff(newStr.strArrDist).isEmpty)
 	def ⊇(newStr: unorderedString) = ((newStr.strArrDist).diff(strArrDist).isEmpty)
 
@@ -65,7 +67,7 @@ us2
 
 us1.length()
 
-
+"hellohe" - "hehe"
 
 
 var g2 = "i am lord voldemort"
