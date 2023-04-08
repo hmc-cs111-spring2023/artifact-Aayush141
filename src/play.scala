@@ -1,6 +1,14 @@
 case class PhonemicString(strt: String):
 	var xSampa = List(List("@","ə"),List("E","ɛ")) 
     	// List(List("A", "ɑ"), List("@", "ə"), List("E", "ɛ"), List("ae", "æ"), List("I", "ɪ"), List("i", "i"), List("O", "ɔ"), List("o", "o"), List("U", "ʊ"), List("u", "u"), List("3", "ɜ"), List("6", "ɐ"), List("7", "ɨ"), List("8", "ɵ"), List("9", "ɘ"), List("&", "æ"), List("@`", "ɚ"))
+	var i = 0;
+	while(i < xSampa.length){
+    		var tempL = xSampa(i)
+    		strt = strt.replace(tempL(0),tempL(1))
+    		i = i + 1
+  		}
+
+	// override def toString = strt
 	def =~(newStr: PhonemicString) = (strt == newStr.strt)
 
 given Conversion[String,PhonemicString] = n => PhonemicString(n)
