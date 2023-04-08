@@ -1,24 +1,56 @@
 case class PhonemicString(strt: String):
-	var xSampa = List(List("@","ə"),List("E","ɛ")) 
     	// List(List("A", "ɑ"), List("@", "ə"), List("E", "ɛ"), List("ae", "æ"), List("I", "ɪ"), List("i", "i"), List("O", "ɔ"), List("o", "o"), List("U", "ʊ"), List("u", "u"), List("3", "ɜ"), List("6", "ɐ"), List("7", "ɨ"), List("8", "ɵ"), List("9", "ɘ"), List("&", "æ"), List("@`", "ɚ"))
+	var caseList = List(List('@','ə'),List('E','ɛ'))  //expand for all 30 characters
+	var unitList = List("tʃ", "dʒ", "ː")              //expand for all affricates
+	var strIpa = strt
+	var strXsampa = strt
+	
+
 	var i = 0;
-	while(i < xSampa.length){
-    		var tempL = xSampa(i)
-    		strt = strt.replace(tempL(0),tempL(1))
+	while(i < caseList.length){
+    		var tempL = caseList(i)
+    		strIpa = strIpa.replace(tempL(0),tempL(1))
     		i = i + 1
   		}
 
-	// override def toString = strt
-	def =~(newStr: PhonemicString) = (strt == newStr.strt)
+	i = 0;
+	while(i < caseList.length){
+    		var tempL = caseList(i)
+    		strXsampa = strXsampa.replace(tempL(1),tempL(0))
+    		i = i + 1
+  		}
+
+	var plength = strIpa.length()
+	var count = 0;
+	i = 0;
+	while(i < unitList.length){
+    		count = count + strt.sliding(unitList(i).length()).count(_ == unitList(i))
+    		i = i + 1
+  		}
+	plength = plength - count;
+
+
+	def toIPACase = strIpa
+	def toXSampaCase = strXsampa
+	def length = plength
+
+	override def toString = strIpa
+
+	def =~(newStr: PhonemicString) = (strIpa == newStr.strIpa)
 
 given Conversion[String,PhonemicString] = n => PhonemicString(n)
 
 //var d = \hE:loU\
-
 var g = "he"
-
 PhonemicString("he") =~ g
+"he" =~ g
 
+var d = "<hE:l@>"
+var dx = "<hɛ:lə>"
+d =~ dx
+
+var gps = PhonemicString("heːtʃ tʃyuʃt")
+gps.length
 
 //in progress loop strucure
 def loop_each_word (word: => String) (sentence: => String) (body: => Unit) =
@@ -30,6 +62,8 @@ def loop_each_word (word: => String) (sentence: => String) (body: => Unit) =
 loop_each_word (w) ("hE:lo-hE:loU-hE:loU") {
 	println(w)
 }
+
+
 
 
 //-------------------------------
