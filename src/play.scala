@@ -39,11 +39,15 @@ case class PhonemicString(strt: String):
 	def =~(newStr: PhonemicString) = (strIpa == newStr.strIpa)
 
 given Conversion[String,PhonemicString] = n => PhonemicString(n)
+extension (s: String)
+	def / = PhonemicString(s)
 
 //var d = \hE:loU\
 var g = "he"
 PhonemicString("he") =~ g
 "he" =~ g
+
+"he" /
 
 var d = "<hE:l@>"
 var dx = "<hɛ:lə>"
@@ -89,11 +93,14 @@ case class unorderedString(strt: String):
 given Conversion[String,unorderedString] = n => unorderedString(n)
 given Conversion[unorderedString, String] = n => n.toString
 
+extension (s: String)
+	def u = unorderedString(s)
+
 
 var g2 = "i am lord voldemort"
 var g3 = "i amd lordvv volodemort lloaer "
 var us1 = "tom marvolo riddle "
-var us2 = unorderedString("tik")
+var us2 = "tik" u
 
 us1 ~~ g2
 us1 ~~= g2
@@ -117,3 +124,40 @@ var us1 = unorderedString("tom marvolo riddle ")
 us1 ~~ g2
 
 
+
+def for_loop(initializer: => Unit, condition: => Boolean, increment: => Unit)(body: => Unit) = {
+    initializer
+    while (condition) {
+      body
+      increment
+    }
+  }
+
+def for_loop(condition: => Int)(body: => Unit) = {
+    i = 0
+    while (i < condition) {
+      body
+      i += 1
+    }
+  }
+
+def for_loop(cond: => Boolean, increment: => Unit)(body: => Unit) = {
+    i = 0
+    while (cond) {
+      body
+      increment
+    }
+  }
+
+var i = 0;
+for_loop(10) {
+  println(i)
+}
+
+for_loop(i < 10, i += 1) {
+  println(i * 2)
+}
+
+for_loop((i = 0), i < 10, i += 1) {
+  println(i);
+}
