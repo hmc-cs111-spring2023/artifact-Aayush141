@@ -25,4 +25,4 @@ Palatal Plosive (Linguist term for "C")
 
 The Language Language (Language for Linguists)
 
-Palatal Plosive++ (C++. Also, an alliteration. PPPP)
+Palatal Plosive++ (Like C, C++, C#. Here, C++. Also, an alliteration. PPPP. Infact, it is a second degree where the first TWO consonants are the same "pl", "pl", "pl", "pl". And guess what "PL" stands for? Programming Language! It is a PL.)
