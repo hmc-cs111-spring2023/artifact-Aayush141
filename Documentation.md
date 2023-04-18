@@ -1,4 +1,4 @@
-# Language Name Documentation
+# [Language Name] Documentation
 
 Description: This code provides two case classes, PhonemicString and unorderedString, for working with phonemic and unordered strings, respectively. Additionally, it contains various utility methods for manipulating and comparing strings.
 
