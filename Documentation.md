@@ -28,8 +28,8 @@ The unorderedString case class represents an unordered string, where the charact
 Attributes:
 
 toString: Returns the sorted string.
-~~: Compares two unorderedString instances for equality, considering duplicates.
-~~=: Compares two unorderedString instances for equality, without considering duplicates.
+~: Compares two unorderedString instances for equality, considering duplicates.
+~=: Compares two unorderedString instances for equality, without considering duplicates.
 -: Removes characters from one unorderedString based on another unorderedString.
 ⊆: Checks if an unorderedString is a subset of another unorderedString.
 ⊇: Checks if an unorderedString is a superset of another unorderedString.
@@ -48,14 +48,14 @@ for loops are used when you have a block of code which you want to repeat a fixe
 var i = 0;\
 for_loop(10) {\ 
   println(i)\
-}\
+}
 
 for_loop(i < 10, i += 1) {\
   println(i)\
-}\
+}
 
 for_loop((i = 0), i < 10, i += 1) {\
   println(i);\
-}\
+}
 
 These allow the programmer to work with and parse through the new datatypes.
