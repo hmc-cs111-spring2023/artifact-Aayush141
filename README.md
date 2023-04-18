@@ -2,7 +2,7 @@
 
 name ideas:
 
-Soft C (Like c#, but soft c (s) is a linguistic debate) 
+Soft C (Like C, C++, C#, but "soft c" is a linguistic debate) 
 
 PhonemiC
 
@@ -21,6 +21,6 @@ Syntax Syntax
 
 a Priori 
 
-Palatal Plosive (C)
+Palatal Plosive (Linguist term for "C")
 
 The Language Language (Language for Linguists)
