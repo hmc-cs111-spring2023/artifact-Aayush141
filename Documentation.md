@@ -1,45 +1,22 @@
 # [Language Name] Documentation
 
-Description: This code provides two case classes, PhonemicString and unorderedString, for working with phonemic and unordered strings, respectively. Additionally, it contains various utility methods for manipulating and comparing strings.
+Description: This code provides two case classes, PhonemicString and unorderedString, for working with phonemic and unordered strings, respectively. 
 
-## PhonemicString
-
-The PhonemicString type allows Linguists to work with phonemes.
-
-** Attributes: **
-
-In place of "upper case" and "lower case":
-
-toIPACase: Converts the string to IPA notation.
-
-toXSampaCase: Converts the string to X-SAMPA notation.
-
-length: Returns the phonemic length of the string.
-
-toString: Returns the IPA representation of the string.
-
-=~: Compares two PhonemicString instances for equality.
-
-Conversions and Extensions:
-
-Any String implicitly converts to a PhonemicString when 
-
-extension (s: String): Provides a / method for creating a PhonemicString from a string.
-
+Additionally, it contains various utility methods for manipulating and comparing strings.
 
 ## UnorderedString
 
-The unorderedString case class represents an unordered string, where the characters are not ordered.
+The unorderedString case class represents an unordered string, where the characters are not ordered. 
 
 Attributes:
 
-toString: Returns the sorted string.
+toString: Returns the string representation of the unorderedString. The characters are sorted alphabetically.
 
-~: Compares two unorderedString instances for equality, considering duplicates.
+~: Equality Operator. Compares two unorderedString instances for equality.
 
 ~=: Compares two unorderedString instances for equality, without considering duplicates.
 
--: Removes characters from one unorderedString based on another unorderedString.
+-: Minus Operator. Removes characters from one unorderedString based on another unorderedString.
 
 ⊆: Checks if an unorderedString is a subset of another unorderedString.
 
@@ -47,11 +24,38 @@ toString: Returns the sorted string.
 
 Conversions and Extensions:
 
-Conversion[String, unorderedString]: Converts a string to an unorderedString instance.
+Conversion[String, unorderedString]: Converts a string to an unorderedString.
 
 Conversion[unorderedString, String]: Converts an unorderedString to a string.
 
 extension (s: String): Provides a u method for creating an unorderedString from a string.
+
+var uos = "text" u   <---this creates an unordered string.
+
+## PhonemicString
+
+The PhonemicString type allows Linguists to work with phonemes.
+
+**Attributes: **
+
+In place of "upper case" and "lower case":
+
+toIPACase: Converts the string to IPA case.
+
+toXSampaCase: Converts the string to X-SAMPA case.
+
+length: Returns the phonemic length of the string.
+
+toString: Returns the IPA representation as a string.
+
+=~: Compares two PhonemicString instances for equality. 
+
+Conversions and Extensions:
+
+Any String implicitly converts to a PhonemicString when 
+
+extension (s: String): Provides a / method for creating a PhonemicString from a string.
+
 
 ## Utility Methods
 
