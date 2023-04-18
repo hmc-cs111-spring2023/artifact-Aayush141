@@ -21,4 +21,6 @@ Syntax Syntax
 
 a Priori 
 
-Palatal Plosive
+Palatal Plosive (C)
+
+The Language Language (Language for Linguists)
