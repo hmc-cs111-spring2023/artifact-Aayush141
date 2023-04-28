@@ -55,7 +55,9 @@ toString: Returns the IPA representation as a string.
 =~ or ~=: Compares two PhonemicString instances for equality. 
 
 ↓  : Used to print the phoneme. IO operator
+
 ↓| : Prints the phoneme in IPA case. IO operator
+
 ↓× : Prints the phoneme in Xsampa case. IO operator
 
 Conversions and Extensions:
@@ -89,9 +91,11 @@ for_loop((i = 0), i < 10, i += 1) {\
 These allow the programmer to work with and parse through the new datatypes.
 
 Implication function: 
+
 A -> B : if A then B. 
 
 n times {block}: 
+
 repeats a block of code "n" times.
 
 line or lines or ln: prints empty lines.
