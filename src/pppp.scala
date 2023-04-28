@@ -1,12 +1,15 @@
 object pppp{
 
-	// Unordered String
+	// Unordered String 
+
+	// A case class representing an unordered string
 
 	case class unorderedString(strt: String) {
 
 		var strArr = (strt.toCharArray()).sorted
 		var strArrDist = strArr.distinct
 
+		// Override the toString method to return the sorted string
 		override def toString = strArr.mkString("")
 
 		def ~~(newStr: unorderedString) = (strArr.sameElements(newStr.strArr))
@@ -22,26 +25,28 @@ object pppp{
 	}
 
 
+	// Implicit conversions between String and unorderedString
+	given Conversion[String,unorderedString] = n => unorderedString(n)
+	given Conversion[unorderedString, String] = n => n.toString
 
-	// given Conversion[String,unorderedString] = n => unorderedString(n)
-	// given Conversion[unorderedString, String] = n => n.toString
-	implicit def stringToUnorderedString(n: String): unorderedString = unorderedString(n)
-	implicit def unorderedStringToString(n: unorderedString): String = n.toString
-
-
+	// Extension method to convert a string to an unordered string
 	extension (s: String)
 		def u = unorderedString(s)
 	
 	// Phonemic String
 
+	// A case class representing a phonemic string
+
 	case class PhonemicString(var strt: String) {
+
+		// Define the character mappings and unit lists for IPA and X-SAMPA conversion
 
 		var caseList = List(List('@','ə'),List('E','ɛ'))  //expand for all 30 characters
 		var unitList = List("tʃ", "dʒ", "ː")              //expand for all affricates
 		var strIpa = strt
 		var strXsampa = strt
 		
-
+		// Replace the characters in the input string with their IPA counterparts
 		var i = 0;
 		while(i < caseList.length){
 			var tempL = caseList(i)
@@ -49,6 +54,8 @@ object pppp{
 			i = i + 1
 		}
 
+		// Replace the characters in the input string with their X-SAMPA counterparts
+		// Seperate loops and extensions are used in this program for ease of editing and modularity
 		i = 0;
 		while(i < caseList.length){
 			var tempL = caseList(i)
@@ -56,6 +63,7 @@ object pppp{
 			i = i + 1
 		}
 
+		// Calculate the length of the phonemic string, accounting for affricates
 		var plength = strIpa.length()
 		var count = 0;
 		i = 0;
@@ -73,26 +81,31 @@ object pppp{
 		def ↓| = print(strIpa)
 		def ↓× = print(strXsampa)
 
+		// Override the toString method to return the IPA representation
 		override def toString = strIpa
 
+		// Compare two phonemic strings for equality in IPA representation
+		// Either =~ or ~= work, making it easier for the programmer.
 		def =~(newStr: PhonemicString) = (strIpa == newStr.strIpa)
 		def ~=(newStr: PhonemicString) = (strIpa == newStr.strIpa)
 	}
 	
 		
-
+	// Implicit conversion between String and PhonemicString
 	given Conversion[String,PhonemicString] = n => PhonemicString(n)
 
+	// Extension method to convert a string to a phonemic string
 	extension (s: String)
 		def / = PhonemicString(s)
 
+	// Extension methods for printing line breaks
 	extension (u: Unit)
 		def ln = println("")
 
 	extension (i: Int)
 		def lines = for_loop(i){println("")}
 	
-	// flow control
+	// flow control defination, loop helper methods.
 	var i = 0;
 
 	def for_loop(initializer: => Unit, condition: => Boolean, increment: => Unit)(body: => Unit) = {
@@ -119,11 +132,14 @@ object pppp{
 		}
 	}
 	
+	// Extension methods for conditional execution of statements
 	extension(b: Boolean)
 		def ⊢(statement: => Unit) = if (b) {statement}
 		def ->(statement: => Unit) = if (b) {statement}
 		def ->(statement: => Unit, elsestatement: => Unit) = if (b) {statement} else {elsestatement}
-
+		def ⊢(statement: => Unit, elsestatement: => Unit) = if (b) {statement} else {elsestatement}
+		
+	// Extension method for running a block of code a specified number of times
 	extension(i2: Int)
 		def times(body: => Unit) = for_loop (i2) {body}
 
