@@ -1,4 +1,4 @@
-# [Language Name] Documentation
+# PP++ Documentation
 
 Description: This code provides two case classes, PhonemicString and unorderedString, for working with phonemic and unordered strings, respectively. 
 
