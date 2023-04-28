@@ -41,8 +41,15 @@ object pppp{
 
 		// Define the character mappings and unit lists for IPA and X-SAMPA conversion
 
-		var caseList = List(List('@','ə'),List('E','ɛ'))  //expand for all 30 characters
-		var unitList = List("tʃ", "dʒ", "ː")              //expand for all affricates
+		var caseList = List(
+  			List('@', 'ə'), List('E', 'ɛ'), List('V', 'ʌ'), List('ae', 'æ'), List('I', 'ɪ'),
+  			List('O', 'ɔ'), List('U', 'ʊ'), List('S', 'ʃ'),
+  			List('Z', 'ʒ'), List('j', 'ʤ'), List('N', 'ŋ'), List('R', 'ʁ'), List('L', 'ɬ'),
+  			List('x', 'χ'), List('B', 'β'), List('D', 'ð'), List('G', 'ɣ'), List('H', 'ɦ'),
+  			List('F', 'ɸ'), List('P', 'ɸ'), List('Q', 'ʔ'), List('K', 'k'), List('T', 't'),
+  			List('W', 'ʍ'), List('X', 'ɧ'), List('J', 'ʝ'), List('M', 'ɱ'), List('8', 'ɵ')
+		)
+		var unitList = List("tʃ", "dʒ", "ː")              //expand for more affricates
 		var strIpa = strt
 		var strXsampa = strt
 		
