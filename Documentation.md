@@ -2,7 +2,9 @@
 
 Description: This code provides two case classes, PhonemicString and unorderedString, for working with phonemic and unordered strings, respectively. 
 
-Additionally, it contains various utility methods for manipulating and comparing strings.
+Additionally, it contains various utility methods for manipulating and comparing these new types.
+
+The documentation and the project file are typically simultaneously updated, but some of it here might be out of date since the pppp.scala is constantly updated.  
 
 ## UnorderedString
 
@@ -21,6 +23,8 @@ toString: Returns the string representation of the unorderedString. The characte
 ⊆: Checks if an unorderedString is a subset of another unorderedString.
 
 ⊇: Checks if an unorderedString is a superset of another unorderedString.
+
+? or frequencyOf: Returns the number of a particular character in an unorderedString. (Similar to the indexOf for Strings)
 
 Conversions and Extensions:
 
@@ -48,7 +52,11 @@ length: Returns the phonemic length of the string.
 
 toString: Returns the IPA representation as a string.
 
-=~: Compares two PhonemicString instances for equality. 
+=~ or ~=: Compares two PhonemicString instances for equality. 
+
+↓  : Used to print the phoneme. IO operator
+↓| : Prints the phoneme in IPA case. IO operator
+↓× : Prints the phoneme in Xsampa case. IO operator
 
 Conversions and Extensions:
 
@@ -79,3 +87,12 @@ for_loop((i = 0), i < 10, i += 1) {\
 }
 
 These allow the programmer to work with and parse through the new datatypes.
+
+Implication function: 
+A -> B : if A then B. 
+
+n times {block}: 
+repeats a block of code "n" times.
+
+line or lines or ln: prints empty lines.
+
