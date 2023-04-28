@@ -44,25 +44,25 @@ object pppp{
 
 		var i = 0;
 		while(i < caseList.length){
-		var tempL = caseList(i)
-		strIpa = strIpa.replace(tempL(0),tempL(1))
-		i = i + 1
-	}
+			var tempL = caseList(i)
+			strIpa = strIpa.replace(tempL(0),tempL(1))
+			i = i + 1
+		}
 
 		i = 0;
 		while(i < caseList.length){
-		var tempL = caseList(i)
-		strXsampa = strXsampa.replace(tempL(1),tempL(0))
-		i = i + 1
-	}
+			var tempL = caseList(i)
+			strXsampa = strXsampa.replace(tempL(1),tempL(0))
+			i = i + 1
+		}
 
 		var plength = strIpa.length()
 		var count = 0;
 		i = 0;
 		while(i < unitList.length){
-		count = count + strt.sliding(unitList(i).length()).count(_ == unitList(i))
-		i = i + 1
-	}
+			count = count + strt.sliding(unitList(i).length()).count(_ == unitList(i))
+			i = i + 1
+		}	
 		plength = plength - count;
 
 
@@ -98,24 +98,24 @@ object pppp{
 	def for_loop(initializer: => Unit, condition: => Boolean, increment: => Unit)(body: => Unit) = {
 		initializer
 		while (condition) {
-		body
-		increment
+			body
+			increment
 		}
 	}
 
 	def for_loop(condition: => Int)(body: => Unit) = {
 		i = 0
 		while (i < condition) {
-		body
-		i += 1
+			body
+			i += 1
 		}
 	}
 
 	def for_loop(cond: => Boolean, increment: => Unit)(body: => Unit) = {
 		i = 0
 		while (cond) {
-		body
-		increment
+			body
+			increment
 		}
 	}
 	
